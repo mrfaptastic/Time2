@@ -1,24 +1,19 @@
 {
-    "name": "Time",
-    "description": "Time keeping library",
+    "name": "TimeLib2",
+    "description": "Time and date keeping functionality for Arduino. Based on the original Time library but refactored.",
     "keywords": "Time, date, hour, minute, second, day, week, month, year, RTC",
     "authors": [
         {
-            "name": "Michael Margolis"
-        },
-        {
-            "name": "Paul Stoffregen",
-            "email": "paul@pjrc.com",
-            "url": "http://www.pjrc.com",
-            "maintainer": true
+            "name": "Faptastic",
+            "maintainer": true            
         }
     ],
     "repository": {
         "type": "git",
-         "url": "https://github.com/PaulStoffregen/Time"
+         "url": "https://github.com/mrfaptastic/TimeLib2"
     },
-    "version": "1.6.1",
-    "homepage": "http://playground.arduino.cc/Code/Time",
+    "version": "1.0.0",
+    "homepage": "https://github.com/mrfaptastic/TimeLib2",
     "frameworks": "Arduino",
     "examples": [
         "examples/*/*.ino"

@@ -2,7 +2,7 @@
 
 Time is a library that provides timekeeping functionality for Arduino.
 
-Using the Arduino Library Manager, install "*Time* by *Michael Margolis*".
+Using the Arduino Library Manager, install "*Time* by *Faptastic*".
 
 The code is derived from the Playground DateTime library but is updated
 to provide an API that is more flexible and easier to use.
@@ -16,10 +16,20 @@ for time synchronization.
 
 ## Functionality
 
-To use the Time library in an Arduino sketch, include TimeLib.h.
+To use the Time library in an Arduino sketch, include TimeLib2.h.
+
+Unlike TimeLib, TimeLib2 uses a seperate class for each clock you wish to manage, so you can  have different clocks at different offsets / timezones.
 
 ```c
-#include <TimeLib.h>
+#include <TimeLib2.h>
+
+TimeLib2 clock;
+TimeLib2 clock2;
+
+clock.setTime(<insert unix timestamp here>)
+clock.setOffset(<insert unix timestamp here>)
+
+
 ```
 
 The functions available in the library include
