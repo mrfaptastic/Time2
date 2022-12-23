@@ -5,12 +5,12 @@
  * This sketch uses the ESP8266WiFi library
  */
 
-#include <TimeLib.h>
+#include <TimeLib2.hpp>
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 
-const char ssid[] = "*************";  //  your network SSID (name)
-const char pass[] = "********";       // your network password
+const char ssid[] = "XXXXXXXX";  //  your network SSID (name)
+const char pass[] = "YYYYYYYY";       // your network password
 
 // NTP Servers:
 static const char ntpServerName[] = "us.pool.ntp.org";
@@ -27,6 +27,8 @@ const int timeZone = 1;     // Central European Time
 
 
 WiFiUDP Udp;
+TimeLib2 tl2;
+
 unsigned int localPort = 8888;  // local port to listen for UDP packets
 
 time_t getNtpTime();
@@ -56,17 +58,17 @@ void setup()
   Serial.print("Local port: ");
   Serial.println(Udp.localPort());
   Serial.println("waiting for sync");
-  setSyncProvider(getNtpTime);
-  setSyncInterval(300);
+  tl2.setSyncProvider(getNtpTime);
+  tl2.setSyncInterval(300);
 }
 
 time_t prevDisplay = 0; // when the digital clock was displayed
 
 void loop()
 {
-  if (timeStatus() != timeNotSet) {
-    if (now() != prevDisplay) { //update the display only if time has changed
-      prevDisplay = now();
+  if (tl2.timeStatus() != timeNotSet) {
+    if (tl2.getEpochSecond() != prevDisplay) { //update the display only if time has changed
+      prevDisplay = tl2.getEpochSecond();
       digitalClockDisplay();
     }
   }
@@ -75,15 +77,15 @@ void loop()
 void digitalClockDisplay()
 {
   // digital clock display of the time
-  Serial.print(hour());
-  printDigits(minute());
-  printDigits(second());
+  Serial.print(tl2.hour());
+  printDigits(tl2.minute());
+  printDigits(tl2.second());
   Serial.print(" ");
-  Serial.print(day());
+  Serial.print(tl2.day());
   Serial.print(".");
-  Serial.print(month());
+  Serial.print(tl2.month());
   Serial.print(".");
-  Serial.print(year());
+  Serial.print(tl2.year());
   Serial.println();
 }
 
