@@ -1,6 +1,6 @@
 {
     "name": "TimeLib2",
-    "description": "Time and date keeping functionality for Arduino. Based on the original Time library but refactored.",
+    "description": "Time and date keeping functionality for Arduino. Class based and therefore supports multiple instances / clocks in parallel.",
     "keywords": "Time, date, hour, minute, second, day, week, month, year, RTC",
     "authors": [
         {

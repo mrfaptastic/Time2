@@ -121,3 +121,6 @@ Low-level functions to convert between system time and individual time elements 
 breakTime(time, &tm);  // break time_t into elements stored in tm struct
 makeTime(&tm);         // return time_t from elements stored in tm struct
 ```
+# Credits
+
+Based on a fork of: https://github.com/PaulStoffregen/Time
